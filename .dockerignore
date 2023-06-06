@@ -6,3 +6,7 @@ notebooks/
 env/
 LICENSE
 README.md
+deployment_documentation/
+prediction_test_file/
+upload_data_to_db/
+upload_data.py
