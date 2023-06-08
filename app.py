@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, request, send_file
+from flask_cors import CORS, cross_origin
 from src.exception import CustomException
 from src.logger import logging as lg
 import os,sys
@@ -8,11 +9,12 @@ from src.pipeline.predict_pipeline import PredictionPipeline
 
 app = Flask(__name__)
 
+@cross_origin
 @app.route("/")
 def home():
     return "Welcome to my application"
 
-
+@cross_origin
 @app.route("/train")
 def train_route():
     try:
@@ -24,6 +26,8 @@ def train_route():
     except Exception as e:
         raise CustomException(e,sys)
 
+
+@cross_origin
 @app.route('/predict', methods=['POST', 'GET'])
 def upload():
     
@@ -51,4 +55,4 @@ def upload():
 
 #execution will start from here
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug= True)
+    app.run()

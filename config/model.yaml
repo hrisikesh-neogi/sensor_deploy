@@ -16,11 +16,7 @@ model_selection:
            - 100
            - 200
            - 300
-          
-          gamma: 
-           - 0
-           - 0.1
-           - 0.2
+
           
           
       GradientBoostingClassifier:
@@ -39,10 +35,6 @@ model_selection:
           kernel: 
            - linear
            - rbf
-          gamma: 
-           - 0.1
-           - 0.01
-           - 0.001
 
       RandomForestClassifier:
         search_param_grid:
